@@ -5,7 +5,7 @@ test('Амжилттай нэвтрэх', async({page}) => {
     await page.goto('https://www.saucedemo.com');
 
     //username password oruulah
-    await page.getByPlaceholder('Username').fill('standart_user');
+    await page.getByPlaceholder('Username').fill('standard_user');
     await page.getByPlaceholder('Password').fill('secret_sauce');
     //login hiine
     await page.getByRole('button',{name: 'Login'}).click();
@@ -22,7 +22,7 @@ test('Амжилтгүй нэвтрэх', async({page}) => {
     await page.goto('https://www.saucedemo.com');
 
     //username password oruulah
-    await page.getByPlaceholder('Username').fill('standart_user');
+    await page.getByPlaceholder('Username').fill('standard_user');
     await page.getByPlaceholder('Password').fill('wrong_pass');
     //login hiine
     await page.getByRole('button',{name: 'Login'}).click();
@@ -35,14 +35,14 @@ test('Нэвтэрсний дараа бараа сагслах', async({page}) 
     await page.goto('https://www.saucedemo.com');
 
     //username password oruulah
-    await page.getByPlaceholder('Username').fill('standart_user');
+    await page.getByPlaceholder('Username').fill('standard_user');
     await page.getByPlaceholder('Password').fill('secret_sauce');
     //login hiine
     await page.getByRole('button',{name: 'Login'}).click();
     //product page needseng shalgah
     await expect(page.getByText('Products')).toBeVisible();
     //baraag sagsand nemeh
-    await page.getByRole('button',{name: 'Add to card'}).first().click();
+    await page.getByRole('button',{name: 'Add to cart'}).first().click();
     //sagsruu 1 baraa orson eseh iig shalgah
     await expect(page.locator('.shopping_cart_badge')).toHaveText('1');
     await page.getByRole('button', {name: 'Open Menu'}).click();
